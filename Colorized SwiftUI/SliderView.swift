@@ -18,11 +18,13 @@ struct SliderView: View {
     var body: some View {
         HStack {
             Text("\(lround(value))").foregroundColor(Color(.systemGray))
+                .frame(width: 40, height: 40)
             Slider(value: $value, in: 0...255, step: 1)
                 .tint(sliderTint)
             TextField("", text: $inputValue)
                 .bordered()
-                .frame(width: 80, height: 50)
+                .multilineTextAlignment(.trailing)
+                .frame(width: 65, height: 40)
                 .keyboardType(.numberPad)
                 .focused($fieldIsFocused)
         }

@@ -42,6 +42,19 @@ struct ContentView: View {
             Spacer()
         }
         .padding()
+        
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Button("Done") {
+                    fieldIsFocused = false
+                    
+                    sliderRedValue = Double(redValueInput) ?? sliderRedValue
+                    sliderGreenValue = Double(greenValueInput) ?? sliderBlueValue
+                    sliderBlueValue = Double(blueValueInput) ?? sliderBlueValue
+                    
+                }
+            }
+        }
     }
 }
 struct ContentView_Previews: PreviewProvider {
