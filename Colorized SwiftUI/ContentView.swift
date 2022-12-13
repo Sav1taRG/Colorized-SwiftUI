@@ -22,12 +22,15 @@ struct ContentView: View {
         VStack {
             SliderView(value: $sliderRedValue,
                        inputValue: $redValueInput,
+                       fieldIsFocused:_fieldIsFocused,
                        sliderTint: .red)
             SliderView(value: $sliderGreenValue,
                        inputValue: $greenValueInput,
+                       fieldIsFocused: _fieldIsFocused,
                        sliderTint: .green)
             SliderView(value: $sliderBlueValue,
                        inputValue: $blueValueInput,
+                       fieldIsFocused: _fieldIsFocused,
                        sliderTint: .blue)
         }
         .padding()
@@ -56,6 +59,9 @@ struct BorderedViewModifier: ViewModifier {
 
 extension TextField {
     func bordered() -> some View {
-        ModifiedContent(content: self, modifier: BorderedViewModifier())
+        ModifiedContent(
+            content: self,
+            modifier: BorderedViewModifier()
+        )
     }
 }
