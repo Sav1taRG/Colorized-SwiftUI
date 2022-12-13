@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var sliderRedValue = Double.random(in: 0...255)
-    @State var sliderGreenValue = Double.random(in: 0...255)
-    @State var sliderBlueValue = Double.random(in: 0...255)
+    @State private var sliderRedValue = Double.random(in: 0...255)
+    @State private var sliderGreenValue = Double.random(in: 0...255)
+    @State private var sliderBlueValue = Double.random(in: 0...255)
     
-    @State var redValueInput = ""
-    @State var greenValueInput = ""
-    @State var blueValueInput = ""
+    @State private var redValueInput = ""
+    @State private var greenValueInput = ""
+    @State private var blueValueInput = ""
+    
+    @FocusState private var fieldIsFocused: Bool
     
     var body: some View {
         VStack {
             SliderView(value: $sliderRedValue,
                        inputValue: $redValueInput,
-                       textColor: .red, sliderTint: .red)
+                       sliderTint: .red)
             SliderView(value: $sliderGreenValue,
                        inputValue: $greenValueInput,
-                       textColor: .green, sliderTint: .green)
+                       sliderTint: .green)
             SliderView(value: $sliderBlueValue,
                        inputValue: $blueValueInput,
-                       textColor: .blue, sliderTint: .blue)
+                       sliderTint: .blue)
         }
         .padding()
     }
@@ -45,9 +47,10 @@ struct BorderedViewModifier: ViewModifier {
             .overlay(
                 RoundedRectangle(cornerRadius: 4)
                     .stroke(lineWidth: 1)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(.systemGray))
             )
             .shadow(color: Color.gray.opacity(0.4), radius: 1, x: 1, y: 2)
+            .accentColor(Color(.systemGray))
     }
 }
 

@@ -10,18 +10,21 @@ import SwiftUI
 struct SliderView: View {
     @Binding var value: Double
     @Binding var inputValue: String
-    let textColor: Color
+    
+    @FocusState var fieldIsFocused: Bool
+    
     let sliderTint: Color
     
     var body: some View {
         HStack {
-            Text("\(lround(value))").foregroundColor(textColor)
+            Text("\(lround(value))").foregroundColor(Color(.systemGray))
             Slider(value: $value, in: 0...255, step: 1)
                 .tint(sliderTint)
             TextField("", text: $inputValue)
                 .bordered()
                 .frame(width: 80, height: 50)
                 .keyboardType(.numberPad)
+                .focused($fieldIsFocused)
         }
     }
 }
