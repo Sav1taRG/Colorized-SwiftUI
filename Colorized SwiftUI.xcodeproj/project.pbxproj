@@ -12,6 +12,7 @@
 		30EAC8DC2948DA6D009CC664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30EAC8DB2948DA6D009CC664 /* Assets.xcassets */; };
 		30EAC8DF2948DA6D009CC664 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30EAC8DE2948DA6D009CC664 /* Preview Assets.xcassets */; };
 		30EAC8E62948DAA7009CC664 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAC8E52948DAA7009CC664 /* SliderView.swift */; };
+		30EAC8E829490AA9009CC664 /* ColorRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EAC8E729490AA9009CC664 /* ColorRectangleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		30EAC8DB2948DA6D009CC664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30EAC8DE2948DA6D009CC664 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		30EAC8E52948DAA7009CC664 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		30EAC8E729490AA9009CC664 /* ColorRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRectangleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				30EAC8D72948DA6C009CC664 /* Colorized_SwiftUIApp.swift */,
 				30EAC8D92948DA6C009CC664 /* ContentView.swift */,
 				30EAC8E52948DAA7009CC664 /* SliderView.swift */,
+				30EAC8E729490AA9009CC664 /* ColorRectangleView.swift */,
 				30EAC8DB2948DA6D009CC664 /* Assets.xcassets */,
 				30EAC8DD2948DA6D009CC664 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			files = (
 				30EAC8E62948DAA7009CC664 /* SliderView.swift in Sources */,
 				30EAC8DA2948DA6C009CC664 /* ContentView.swift in Sources */,
+				30EAC8E829490AA9009CC664 /* ColorRectangleView.swift in Sources */,
 				30EAC8D82948DA6C009CC664 /* Colorized_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

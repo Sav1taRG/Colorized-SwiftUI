@@ -19,7 +19,14 @@ struct ContentView: View {
     @FocusState private var fieldIsFocused: Bool
     
     var body: some View {
-        VStack {
+        let viewColor = Color(
+            red: sliderRedValue / 255,
+            green: sliderGreenValue / 255,
+            blue: sliderBlueValue / 255
+        )
+        
+        VStack(spacing: 15) {
+            ColorRectangleView(color: viewColor)
             SliderView(value: $sliderRedValue,
                        inputValue: $redValueInput,
                        fieldIsFocused:_fieldIsFocused,
@@ -32,11 +39,11 @@ struct ContentView: View {
                        inputValue: $blueValueInput,
                        fieldIsFocused: _fieldIsFocused,
                        sliderTint: .blue)
+            Spacer()
         }
         .padding()
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -56,7 +63,6 @@ struct BorderedViewModifier: ViewModifier {
             .accentColor(Color(.systemGray))
     }
 }
-
 extension TextField {
     func bordered() -> some View {
         ModifiedContent(
