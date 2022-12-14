@@ -45,16 +45,21 @@ struct ContentView: View {
         
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
-                Button("Done") {
-                    fieldIsFocused = false
-                    
-                    sliderRedValue = Double(redValueInput) ?? sliderRedValue
-                    sliderGreenValue = Double(greenValueInput) ?? sliderBlueValue
-                    sliderBlueValue = Double(blueValueInput) ?? sliderBlueValue
-                    
-                }
+                Button("Done", action: applyValue)
             }
         }
+        .onTapGesture {
+            applyValue()
+            self.endEditing()
+        }
+    }
+    
+    private func applyValue() {
+        fieldIsFocused = false
+        
+        sliderRedValue = Double(redValueInput) ?? sliderRedValue
+        sliderGreenValue = Double(greenValueInput) ?? sliderGreenValue
+        sliderBlueValue = Double(blueValueInput) ?? sliderBlueValue
     }
 }
 struct ContentView_Previews: PreviewProvider {
@@ -82,5 +87,16 @@ extension TextField {
             content: self,
             modifier: BorderedViewModifier()
         )
+    }
+}
+
+extension View {
+    func endEditing() {
+        UIApplication.shared.sendAction(
+                #selector(UIResponder.resignFirstResponder),
+                to:nil,
+                from:nil,
+                for:nil
+            )
     }
 }
