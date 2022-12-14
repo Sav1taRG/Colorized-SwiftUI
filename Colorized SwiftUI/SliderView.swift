@@ -26,37 +26,14 @@ struct SliderView: View {
                     inputValue = "\(lround(value))"
                 }
                 .tint(sliderTint)
-            TextField("", text: $inputValue) {_ in
-                checkValue()
+            TextFieldView(
+                value: $value,
+                inputValue: $inputValue,
+                fieldIsFocused: _fieldIsFocused
+            )
+            .onAppear {
+                inputValue = "\(lround(value))"
             }
-                .bordered()
-                .multilineTextAlignment(.trailing)
-                .frame(width: 65, height: 40)
-                .keyboardType(.numberPad)
-                .focused($fieldIsFocused)
-                .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Wrong format"),
-                          message: Text("Please enter values to 0 from 255")
-                    )
-                }
         }
-        .onAppear {
-            inputValue = "\(lround(value))"
-        }
-    }
-    
-    private func checkValue() {
-        if let value = Int(inputValue), (0...255).contains(value) {
-            self.value = Double(value)
-            return
-        }
-        value = 0
-        showAlert.toggle()
     }
 }
-
-//struct SliderView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SliderView(value: 10.0, inputValue: $inputValue, textColor: .red)
-//    }
-//}
